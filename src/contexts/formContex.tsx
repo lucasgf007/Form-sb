@@ -6,11 +6,11 @@ type State = {
     name: string;
     level: 0 | 1 | 2;
     email: '';
-    github: '';
     tell: string;
-    qtd: string;
+    qtd: number;
     segment: string;
-    product: string[];
+    product: string;
+    price: number;
     description: string;
     logo: string;
 }
@@ -31,11 +31,11 @@ const initialData: State = {
     name: '',
     level: 0,
     email: '',
-    github: '',
     tell: '',
-    qtd: '',
+    qtd: 30,
     segment: '',
-    product: ['','',''],
+    product: '',
+    price: 0,
     description: '',
     logo: ''
 }
@@ -49,11 +49,11 @@ export enum FormActions {
     setName,
     setLavel,
     setEmail,
-    setGithub,
     setTell,
     setQtd,
     setSegment,
     setProduct,
+    setPrice,
     setDescription,
     setLogo
 }
@@ -67,10 +67,6 @@ const formReducer = (state: State, action: Action) => {
             return {...state, level: action.payload}
         case FormActions.setEmail:
             return {...state, email: action.payload}
-        case FormActions.setGithub:
-            return {...state, github: action.payload}
-        case FormActions.setGithub:
-            return {...state, github: action.payload}
         case FormActions.setTell:
             return {...state, tell: action.payload}
         case FormActions.setQtd:
@@ -78,7 +74,12 @@ const formReducer = (state: State, action: Action) => {
         case FormActions.setSegment:
             return {...state, segment: action.payload}
         case FormActions.setProduct:
-            return {...state, product: action.payload}
+            return {
+                ...state, 
+                product: action.payload
+            }
+        case FormActions.setPrice:
+            return {...state, price: action.payload}
         case FormActions.setDescription:
             return {...state, description: action.payload}
         case FormActions.setLogo:

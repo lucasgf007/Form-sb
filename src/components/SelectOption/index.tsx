@@ -5,11 +5,12 @@ type Props = {
     urlImg: string;
     price: number;
     selected: boolean;
+    onClick: () => void;
 }
 
-export const SelectOption = ({title, urlImg, price, selected}: Props) => {
+export const SelectOption = ({title, urlImg, price, selected, onClick}: Props) => {
     return (
-        <C.Container selected={selected}>
+        <C.Container onClick={onClick} selected={selected}>
             <C.Product>
                 <C.Img>
                     <img src={urlImg} alt={title} width={150}/>

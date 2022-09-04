@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
     p {
         font-size: 13px;
-        color: #B8B8D4;
+        color: #FFFFFF;
+        margin-right: 100px;
     }
     h1{
         margin: 0;
@@ -26,15 +27,15 @@ export const Container = styled.div`
             box-sizing: border-box;
             width: 100%;
             padding: 15px 10px;
-            border: 2px solid #58a8bc;
+            border: 1px solid #FFFFFF;
             border-radius: 10px;
             color: #FFF;
             outline: 0;
-            background-color: #58a8bc;
+            background-color: #12ADC1;
         }
     }
     button {
-        background-color: #00e33b;
+        background-color: #FDD037;
         margin-top: 20px;
         color: #fff;
         font-size: 16px;
@@ -43,5 +44,12 @@ export const Container = styled.div`
         border: 0;
         border-radius: 6px;
         cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        p{
+            margin-right: 0;
+        }
+        
     }
 `

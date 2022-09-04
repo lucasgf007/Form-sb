@@ -1,10 +1,9 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
 import { ChangeEvent, useEffect } from 'react'
 import { SelectOption } from '../../components/SelectOption'
-import { Product } from '../../components/SelectOption/styles'
 
 export const FormStep2 = () => {
     const history = useHistory()
@@ -12,25 +11,37 @@ export const FormStep2 = () => {
 
     // update level
     useEffect(() => {
-        dispatch({
-            type: FormActions.setCurrentStep,
-            payload: 2
-        })
-    })
+        if(state.name === '' && state.email ==='' && state.tell === ''){
+            history.push('/')
+        } else{
+            dispatch({
+                type: FormActions.setCurrentStep,
+                payload: 2
+            })
+        }
+        
+    }, [])
 
     const handleNextStep = () => {
-        if(state.name !== '' && state.email !== '' && state.tell !== ''){
-            history.push('/step2')
+        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== ''){
+            history.push('/step3')
         }else{
             alert('preecha todos os campos antes de ir para a próxima etapa')
         }
             
     }
-    const setProducts = (level: string) => {
+    const setProducts = (item: string, price: number) => {
+        
         dispatch({
             type: FormActions.setProduct,
-            payload: []
+            payload: item
         })
+        dispatch({
+            type: FormActions.setPrice,
+            payload: price
+        })
+        
+        
     }
 
     
@@ -44,28 +55,30 @@ export const FormStep2 = () => {
                 <hr />
                 <C.Allproducts>
                     <SelectOption 
-                        // onClick={()=>setProducts('tr')}
+                        onClick={()=>setProducts('Trucker', 26)}
                         title='Boné Trucker'
                         price={26}
                         urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
-                        selected={state.product[1] === 'tr'}
+                        selected={state.product === 'Trucker'}
                     />
                     <SelectOption 
+                        onClick={()=>setProducts('Americano', 27)}
                         title='Boné Americano'
-                        price={26}
+                        price={27}
                         urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
-                        selected={state.product[1] === 'am'}
+                        selected={state.product === 'Americano'}
                     />
                     <SelectOption 
+                        onClick={()=>setProducts('DadHat', 26)}
                         title='Boné Dad Hat'
                         price={26}
                         urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
-                        selected={state.product[1] === 'dh'}
+                        selected={state.product === 'DadHat'}
                     />
                     
                 </C.Allproducts>
                 
-                <button onClick={handleNextStep}>Etapa Anterior</button>
+                <Link to={'/'} className='backButton'>Voltar</Link>
                 <button onClick={handleNextStep}>Próxima Etapa</button>
 
             </C.Container>

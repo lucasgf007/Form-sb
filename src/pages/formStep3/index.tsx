@@ -1,9 +1,72 @@
+import { useHistory, Link } from 'react-router-dom'
 import * as C from './styleds'
+import { useForm, FormActions } from '../../contexts/formContex'
+import { Theme } from '../../components/theme'
+import { ChangeEvent, useEffect } from 'react'
 
 export const FormStep3 = () => {
+    const history = useHistory()
+    const { state, dispatch } = useForm()
+
+    // update level
+    useEffect(() => {
+        if(state.name === '' && state.email ==='' && state.tell === ''){
+            history.push('/')
+        } else{
+            dispatch({
+                type: FormActions.setCurrentStep,
+                payload: 3
+            })
+        }
+        
+    }, [])
+
+    const handleNextStep = () => {
+        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== ''){
+            if(state.qtd >= 30){
+                history.push('/orcamento')
+            } else {
+                alert('Por favor insira um valor acima ou igual a 30 unidades')
+            }
+            
+        }else{
+            alert('preecha todos os campos antes de ir para a próxima etapa')
+        }
+            
+    }
+
+    const handleQtdChange = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch({
+            type: FormActions.setQtd,
+            payload: e.target.value
+        })
+    }
+
+    
     return (
-        <C.Container>
-            passo 3
-        </C.Container>
+        <Theme>
+            <C.Container>
+                <p>Passo 3/3</p>
+                <h1>Vamos organizar os últimos detahes</h1>
+                <p>{state.name}, selecione a quantidade de bonés do modelo {state.product} que você deseja comprar</p>
+                <h4>Resumo:</h4>
+                <p>Produto: {state.product} | Preço unitário do {state.product}: R${state.price},00</p>
+                <hr />
+                
+                <label>
+                    Escolha quantos bonés vai querer acima de 30 unidades IGUAIS!
+                    <input
+                        type='text'
+                        autoFocus
+                        value={state.qtd}
+                        onChange={handleQtdChange}
+                    />
+                </label>
+                
+                <Link to={'/step2'} className='backButton'>Voltar</Link>
+                <button onClick={handleNextStep}>Calcular Preço</button>
+
+            </C.Container>
+        </Theme>
     )
 }

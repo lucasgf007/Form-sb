@@ -1,10 +1,12 @@
 import * as C from './styles'
+import { useForm } from '../../contexts/formContex'
 
 export const Header = () => {
+    const { state } = useForm()
+
     return (
         <C.Conteiner>
-            <h1>Cadastro para orçamento na seu boné</h1>
-            <p>Preencha o seu cadastro</p>
+            <img src="https://seubone.com/wp-content/uploads/2022/01/sb-branca.png" alt="seubone" width={200}/>
         </C.Conteiner>
     )
 }

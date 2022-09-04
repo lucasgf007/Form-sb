@@ -50,8 +50,9 @@ export const FormStep1 = () => {
         <Theme>
             <C.Container>
                 <p>Passo 1/3</p>
-                <h1>Vamos preecha com o seu nome</h1>
-                <p>Preecha o campo avaixo com seu nome completo</p>
+                <h1>Bem-Vindo ao orçamento online rápido da SeuBoné</h1>
+                <p>Nesse formulário interativo você vai poder escolher um modelo e sua quantidade, no final do processo vai aparecer em sua tela  um orçamento completo do peoduto escolhido.</p>
+                <p>Para iniciar, basta preencher os campos abaixo 👇 para que possamos entrar em contato após o orçamento</p>
 
                 <hr />
 

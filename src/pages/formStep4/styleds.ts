@@ -13,7 +13,7 @@ export const Container = styled.div`
     hr{
         height: 1px;
         border: 0;
-        background-color: #12ADC1;
+        background-color: #58a8bc;
         margin: 30px 0;
     }
     label{
@@ -52,11 +52,18 @@ export const Container = styled.div`
         padding: 15px 20px;
         color: #FFF;
     }
+
+    @media (max-width: 768px) {
+        .orcamento{
+            text-align: center;
+        }
+        .backButton{
+            display: none;
+        }
+        
+    }
 `
 
 export const Allproducts = styled.div`
     display: flex;
-    flex-flow: row wrap;
-
-    
 `;

@@ -57,7 +57,6 @@ export const FormStep3 = () => {
                     Escolha quantos bonés vai querer acima de 30 unidades IGUAIS!
                     <input
                         type='text'
-                        autoFocus
                         value={state.qtd}
                         onChange={handleQtdChange}
                     />

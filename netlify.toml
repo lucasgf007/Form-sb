@@ -2,3 +2,6 @@
 base = "."
 comand = "npm run build"
 publish = "./build"
+
+[build.environment]
+REACT_APP_API_URL = "https://hook.us1.make.com/xk74k24grd5ylv39f8h1yl9sn7ksshfc"

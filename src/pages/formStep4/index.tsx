@@ -21,24 +21,23 @@ export const FormStep4 = () => {
         
     }, [])
 
-    const EnviarDados = async (requestData: object) => {
-        const requestOptions = {
-            method: 'POST',
-            body: JSON.stringify(requestData),
-            headers: new Headers({
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            }),
-          };
-        
-          const response = await fetch('https://hook.us1.make.com/xk74k24grd5ylv39f8h1yl9sn7ksshfc', requestOptions);
-        
-          return console.log(response?.json())
-    }
+    
 
-    const Envio = () => {
-        // EnviarDados(state)
-        console.log(state)
+    const Envio = async () => {
+        const url: string = (process.env.REACT_APP_API_URL as string)
+        
+
+        const resp = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(state),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        const json = await resp.json();
+        
+        console.log(json)
     }
  
     const TotalOrcamento = (price: number, qtd:number) => {

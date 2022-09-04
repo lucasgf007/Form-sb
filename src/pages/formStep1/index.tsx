@@ -40,11 +40,16 @@ export const FormStep1 = () => {
     }
     const handleTellChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')
+
+
+
         dispatch({
             type: FormActions.setTell,
             payload: e.target.value
         })
     }
+
+    
 
     return (
         <Theme>
@@ -60,7 +65,7 @@ export const FormStep1 = () => {
                     Seu nome completo
                     <input
                         type='text'
-                        autoFocus
+                        
                         value={state.name}
                         onChange={handleNameChange}
                     />

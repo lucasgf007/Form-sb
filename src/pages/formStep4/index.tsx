@@ -63,7 +63,7 @@ export const FormStep4 = () => {
                 <hr />
                 
                 <p>{state.name}, agora que ja viu quanto vai sair tudo, clique em "Fala com o vendedor", para iniciar seu atendimento</p>
-                <Link to={'/step2'} className='backButton'>Novo orçamento</Link>
+                
                 <div className='orcamento'>
                     <button onClick={Envio}>Falar com um vendedor</button>
                 </div>

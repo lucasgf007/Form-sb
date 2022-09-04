@@ -3,6 +3,7 @@ import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
 import { useEffect } from 'react'
+import toast,{ Toaster } from 'react-hot-toast'
 
 export const FormStep4 = () => {
     const history = useHistory()
@@ -35,17 +36,29 @@ export const FormStep4 = () => {
                 'Accept': 'application/json'
             }
         })
-        const json = await resp.json();
-        
-        console.log(json)
+        toast.success('Orçamento enviado com sucesso', {
+            style: {
+              border: '1px solid #00E33B',
+              padding: '16px',
+              color: '#00E33B',
+            },
+            iconTheme: {
+              primary: '#00E33B',
+              secondary: '#FFFAEE',
+            },
+          });
+        return await resp.json();
     }
  
+    
+    
     const TotalOrcamento = (price: number, qtd:number) => {
         return price * qtd
     }
     return (
         <Theme>
             <C.Container>
+                <Toaster />
                 <h1>Orçamento 💰</h1>
                 <p>{state.name}, confira abaixo o resumo do seu pedido e o valor total</p>
 

@@ -3,6 +3,7 @@ import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
 import { ChangeEvent, useEffect } from 'react'
+import toast,{ Toaster } from 'react-hot-toast'
 
 export const FormStep1 = () => {
     const history = useHistory()
@@ -20,7 +21,8 @@ export const FormStep1 = () => {
         if(state.name !== '' && state.email !== '' && state.tell !== ''){
             history.push('/step2')
         }else{
-            alert('preecha todos os campos antes de ir para a próxima etapa')
+            toast.error("Preecha todos os campos!")
+            
         }
             
     }
@@ -54,6 +56,7 @@ export const FormStep1 = () => {
     return (
         <Theme>
             <C.Container>
+                <Toaster />
                 <p>Passo 1/3</p>
                 <h1>Bem-Vindo ao orçamento online rápido da SeuBoné</h1>
                 <p>Nesse formulário interativo você vai poder escolher um modelo e sua quantidade, no final do processo vai aparecer em sua tela  um orçamento completo do peoduto escolhido.</p>

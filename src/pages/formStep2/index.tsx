@@ -2,8 +2,9 @@ import { useHistory, Link } from 'react-router-dom'
 import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
-import { ChangeEvent, useEffect } from 'react'
+import { useEffect } from 'react'
 import { SelectOption } from '../../components/SelectOption'
+import toast,{ Toaster } from 'react-hot-toast'
 
 export const FormStep2 = () => {
     const history = useHistory()
@@ -26,7 +27,7 @@ export const FormStep2 = () => {
         if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== ''){
             history.push('/step3')
         }else{
-            alert('preecha todos os campos antes de ir para a próxima etapa')
+            toast.error("Escolha um produto!")
         }
             
     }
@@ -48,6 +49,7 @@ export const FormStep2 = () => {
     return (
         <Theme>
             <C.Container>
+                <Toaster />
                 <p>Passo 2/3</p>
                 <h1>Falta pouco {state.name} 😉</h1>
                 <p>Agora que ja preecheu seus dados na primeira etapa, informe quais produtos você tem interesse</p>

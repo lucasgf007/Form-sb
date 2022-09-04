@@ -3,6 +3,7 @@ import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
 import { ChangeEvent, useEffect } from 'react'
+import toast,{ Toaster } from 'react-hot-toast'
 
 export const FormStep3 = () => {
     const history = useHistory()
@@ -26,7 +27,7 @@ export const FormStep3 = () => {
             if(state.qtd >= 30){
                 history.push('/orcamento')
             } else {
-                alert('Por favor insira um valor acima ou igual a 30 unidades')
+                toast.error("Insira um valor acima ou igual 30 unidades!")
             }
             
         }else{
@@ -46,6 +47,7 @@ export const FormStep3 = () => {
     return (
         <Theme>
             <C.Container>
+                <Toaster />
                 <p>Passo 3/3</p>
                 <h1>Vamos organizar os últimos detahes</h1>
                 <p>{state.name}, selecione a quantidade de bonés do modelo {state.product} que você deseja comprar</p>

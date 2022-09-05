@@ -13,8 +13,9 @@ export const Theme = ( {children}: Props ) => {
 
     return (
         <C.Container>
+            <Header />
             <C.Area>
-                <Header />
+                
 
                 <C.Steps>
                     <C.Sidebar>

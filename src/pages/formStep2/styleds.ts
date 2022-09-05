@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     p {
-        font-size: 13px;
-        color: #FFFFFF;
+        font-size: 16px;
+        color: #FDD037;
+        margin-right: 100px;
+        font-weight: 500;
     }
     h1{
         margin: 0;
         padding: 0;
         font-size: 26px;
+    }
+    h4{
+        margin: 0;
+        padding: 0;
     }
     hr{
         height: 1px;
@@ -50,8 +56,17 @@ export const Container = styled.div`
         font-size: 16px;
         text-decoration: none;
         padding: 15px 20px;
-        color: #FFF;
+        color: #FDD037;
     }
+    .limpar{
+        color: #FDD037;
+        text-decoration: solid;
+        cursor: pointer;
+    }
+    .footer{
+        margin-bottom: 30px;
+    }
+    
 `
 
 export const Allproducts = styled.div`

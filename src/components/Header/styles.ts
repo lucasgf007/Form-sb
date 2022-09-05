@@ -5,4 +5,5 @@ export const Conteiner = styled.div`
     border-bottom: 1px solid #12ADC1;
     align-items: center;
     text-align: center;
+    background-color: #12ADC1;
 `;

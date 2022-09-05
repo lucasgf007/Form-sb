@@ -11,7 +11,7 @@ export const FormStep3 = () => {
 
     // update level
     useEffect(() => {
-        if(state.name === '' && state.email ==='' && state.tell === ''){
+        if(state.name === '' && state.email ==='' && state.tell === '' && state.product === '' && state.logo === ''){
             history.push('/')
         } else{
             dispatch({
@@ -23,7 +23,7 @@ export const FormStep3 = () => {
     }, [])
 
     const handleNextStep = () => {
-        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== ''){
+        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== '' && state.logo !== ''){
             if(state.qtd >= 30){
                 history.push('/orcamento')
             } else {
@@ -31,7 +31,7 @@ export const FormStep3 = () => {
             }
             
         }else{
-            alert('preecha todos os campos antes de ir para a próxima etapa')
+            toast.error("Preecha todos os campos obrigatórios!")
         }
             
     }
@@ -43,7 +43,12 @@ export const FormStep3 = () => {
         })
     }
 
-    
+    let addAplique = false
+
+    if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
+        addAplique = true
+    }
+
     return (
         <Theme>
             <C.Container>
@@ -52,7 +57,10 @@ export const FormStep3 = () => {
                 <h1>Vamos organizar os últimos detahes</h1>
                 <p>{state.name}, selecione a quantidade de bonés do modelo {state.product} que você deseja comprar</p>
                 <h4>Resumo:</h4>
-                <p>Produto: {state.product} | Preço unitário do {state.product}: R${state.price},00</p>
+                <p><strong>Modelo:</strong> {state.product} + R${state.price},00 </p>
+                <p><strong>Logo:</strong>  {state.logo} {addAplique && '+ R$ 2,00'}</p>
+                {state.aplique !== '' && 
+                    <p><strong>Aplique adicional:</strong> {state.aplique + ' + R$ 2,00'}</p>}
                 <hr />
                 
                 <label>
@@ -66,6 +74,7 @@ export const FormStep3 = () => {
                 
                 <Link to={'/step2'} className='backButton'>Voltar</Link>
                 <button onClick={handleNextStep}>Calcular Preço</button>
+                <div className='footer'></div>
 
             </C.Container>
         </Theme>

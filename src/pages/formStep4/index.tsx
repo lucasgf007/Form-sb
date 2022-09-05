@@ -1,4 +1,4 @@
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import * as C from './styleds'
 import { useForm, FormActions } from '../../contexts/formContex'
 import { Theme } from '../../components/theme'
@@ -21,9 +21,7 @@ export const FormStep4 = () => {
         }
         
     }, [])
-
     
-
     const Envio = async () => {
         const url: string = (process.env.REACT_APP_API_URL as string)
         
@@ -31,11 +29,12 @@ export const FormStep4 = () => {
         const resp = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(state),
-            headers: {
+            headers:{
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         })
+        
         toast.success('Orçamento enviado com sucesso', {
             style: {
               border: '1px solid #00E33B',
@@ -47,25 +46,45 @@ export const FormStep4 = () => {
               secondary: '#FFFAEE',
             },
           });
-        return await resp.json();
+
+        return await resp.text()
+        
     }
  
-    
-    
-    const TotalOrcamento = (price: number, qtd:number) => {
-        return price * qtd
+    let addAplique = false
+
+    if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
+        addAplique = true
     }
+    
+    const TotalOrcamento = (priceProduto: number, qtd:number) => {
+        let logoPrice = 0;
+        let adicional = 0;
+
+        if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
+            logoPrice = 2
+        }
+        if(state.aplique !== ''){
+            adicional = 2
+        }
+
+        return (priceProduto + logoPrice + adicional) * qtd
+    }
+
+
     return (
         <Theme>
             <C.Container>
                 <Toaster />
                 <h1>Orçamento 💰</h1>
                 <p>{state.name}, confira abaixo o resumo do seu pedido e o valor total</p>
-
                 <h3>Resumo do seu pedido:</h3>
                 <ul>
                     <li>Modelo: {state.product}</li>
                     <li>Valor do boné {state.product}: R${state.price},00</li>
+                    <li>Logo em: {state.logo} {addAplique && '+ R$ 2,00'} </li>
+                    {state.aplique !== '' && 
+                    <li>Adicionais: {state.aplique + '+ R$ 2,00'}</li>}
                     <li>Quantidade: {state.qtd} unidades</li>
                 </ul>
                 <h3>Total: R$ {TotalOrcamento(state.price,state.qtd)},00</h3>
@@ -79,8 +98,7 @@ export const FormStep4 = () => {
                 <div className='orcamento'>
                     <button onClick={Envio}>Falar com um vendedor</button>
                 </div>
-                
-
+                <div className='footer'></div>
             </C.Container>
         </Theme>
     )

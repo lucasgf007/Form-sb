@@ -4,7 +4,7 @@ import { createContext, ReactNode, useContext, useReducer } from "react";
 type State = {
     currentStep: number;
     name: string;
-    level: 0 | 1 | 2;
+    aplique: string;
     email: '';
     tell: string;
     qtd: number;
@@ -29,7 +29,7 @@ type FormProviderProps = {
 const initialData: State = {
     currentStep: 0,
     name: '',
-    level: 0,
+    aplique: '',
     email: '',
     tell: '',
     qtd: 30,
@@ -47,7 +47,7 @@ const FormContext = createContext<ContextType | undefined>(undefined);
 export enum FormActions {
     setCurrentStep,
     setName,
-    setLavel,
+    setAplique,
     setEmail,
     setTell,
     setQtd,
@@ -63,8 +63,8 @@ const formReducer = (state: State, action: Action) => {
             return {...state, currentStep: action.payload}
         case FormActions.setName:
             return {...state, name: action.payload}
-        case FormActions.setLavel:
-            return {...state, level: action.payload}
+        case FormActions.setAplique:
+            return {...state, aplique: action.payload}
         case FormActions.setEmail:
             return {...state, email: action.payload}
         case FormActions.setTell:

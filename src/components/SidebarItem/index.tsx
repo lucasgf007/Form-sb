@@ -18,8 +18,8 @@ export const SideBarItem = ({title, descrtiption, icon, path, active}:Props) => 
         <C.Container>
             <Link to={path}>
                 <C.Info>
-                    <C.Title>{title}</C.Title>
-                    <C.Description>{descrtiption}</C.Description>
+                    <C.Title active={active}>{title}</C.Title>
+                    <C.Description active={active}>{descrtiption}</C.Description>
                 </C.Info>
                 <C.IconArea active={active}>
                     {icon === 'profile' && 

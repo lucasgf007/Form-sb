@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: #0295A9;
-    color: #fff;
+    background-color: #fff;
+    color: #0295A9;
     min-height: 100vh;
 
+    p {
+        font-size: 16px;
+        color: #FDD037;
+        margin-right: 100px;
+        font-weight: 500;
+    }
 `;
 
 export const Area = styled.div`

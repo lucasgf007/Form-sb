@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    .footer{
+        margin-bottom: 30px;
+    }
     p {
-        font-size: 13px;
-        color: #FFFFFF;
+        font-size: 16px;
+        color: #FDD037;
         margin-right: 100px;
+        font-weight: 500;
     }
     h1{
         margin: 0;
@@ -27,11 +31,15 @@ export const Container = styled.div`
             box-sizing: border-box;
             width: 100%;
             padding: 15px 10px;
-            border: 1px solid #FFFFFF;
+            border: 1px solid #12ADC1;
             border-radius: 10px;
-            color: #FFF;
+            color: #12ADC1;
             outline: 0;
-            background-color: #12ADC1;
+            background-color: #FFF;
+        }
+        input::placeholder{
+            color: #12ADC1;
+            font-size: 14px;
         }
     }
     button {

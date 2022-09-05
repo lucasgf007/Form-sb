@@ -23,26 +23,26 @@ export const Info = styled.div`
     
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{ active:boolean }>`
     text-align: right;
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 15px;
-    color: #FFFFFF;
+    color: ${props => props.active ? '#12ADC1' : '#FDD037'};
     
 `;
 
-export const Description = styled.div`
+export const Description = styled.div<{ active:boolean }>`
     text-align: right;
     font-size: 13px;
-    color: #FDD037;
+    color: ${props => props.active ? '#12ADC1' : '#FDD037'};
 `;
 
 export const IconArea = styled.div<{ active:boolean }>`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: ${props => props.active ? '#00E33B' : '#FDD037'};
+    background-color: ${props => props.active ? '#12ADC1' : '#FDD037'};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,11 +70,11 @@ export const IconArea = styled.div<{ active:boolean }>`
 export const Point = styled.div<{ active:boolean }>`
     width: 6px;
     height: 6px;
-    border: 3px solid ${props => props.active ? '#12ADC1' : '#FFFFFF'};
+    border: 3px solid ${props => props.active ? '#12ADC1' : '#FDD037'};
     border-radius: 50%;
     margin-left: 30px;
     margin-right: -6px;
-    background-color: ${props => props.active ? '#00E33B' : '#0295A9'};
+    background-color: ${props => props.active ? '#12ADC1' : '#FFF'};
 
     @media (max-width: 768px) {
         margin: 0 -6px 0 20px;

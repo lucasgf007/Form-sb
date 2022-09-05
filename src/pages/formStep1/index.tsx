@@ -65,10 +65,9 @@ export const FormStep1 = () => {
                 <hr />
 
                 <label>
-                    Seu nome completo
+                    Seu primeiro nome
                     <input
                         type='text'
-                        
                         value={state.name}
                         onChange={handleNameChange}
                     />
@@ -76,6 +75,7 @@ export const FormStep1 = () => {
                 <label>
                     Seu E-mail
                     <input
+                        placeholder='Ex.: exemplo@gamil.com'
                         type='email'
                         value={state.email}
                         onChange={handleEmailChange}
@@ -84,15 +84,17 @@ export const FormStep1 = () => {
                 <label>
                     Telefone
                     <input
+                        placeholder='Ex.: 84980809090'
                         type='text'
                         value={state.tell}
-                        maxLength={15}
+                        maxLength={11}
                         onChange={handleTellChange}
                     />
                 </label>
 
 
                 <button onClick={handleNextStep}>Próxima Etapa</button>
+                <div className='footer'></div>
 
             </C.Container>
         </Theme>

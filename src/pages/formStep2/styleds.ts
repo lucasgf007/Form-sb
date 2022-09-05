@@ -4,7 +4,6 @@ export const Container = styled.div`
     p {
         font-size: 16px;
         color: #FDD037;
-        margin-right: 100px;
         font-weight: 500;
     }
     h1{

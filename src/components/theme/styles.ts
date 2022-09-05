@@ -11,6 +11,13 @@ export const Container = styled.div`
         margin-right: 100px;
         font-weight: 500;
     }
+
+    @media (max-width: 768px) {
+        p{
+            margin-right: 0;
+        }
+        
+    }
 `;
 
 export const Area = styled.div`

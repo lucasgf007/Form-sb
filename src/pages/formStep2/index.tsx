@@ -80,7 +80,7 @@ export const FormStep2 = () => {
             <C.Container>
                 <Toaster />
     
-                <p>Passo 2/3</p>
+                <h4>Passo 2/3</h4>
                 <h1>Falta pouco {state.name} 😉</h1>
                 <p>Agora que ja preecheu seus dados na primeira etapa, informe quais produtos você tem interesse</p>
 

@@ -35,10 +35,10 @@ export const Steps = styled.div`
 
 export const Sidebar = styled.div`
     width: 250px;
-    border-right: 1px solid #12ADC1;
+    border-right: 2px solid #12ADC1;
 
     @media (max-width: 768px) {
-        width: 15%;
+        width: 6%;
     }
 `;
 
@@ -49,6 +49,6 @@ export const Page = styled.div`
 
     @media (max-width: 768px) {
         padding: 0 15px 0 15px;
-        max-width: 85%;
+        max-width: 94%;
     }
 `;

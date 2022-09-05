@@ -4,19 +4,26 @@ export const Container = styled.div`
     p {
         font-size: 16px;
         color: #FDD037;
-        font-weight: 500;
+        font-weight: 900;
     }
     h1{
         margin: 0;
         padding: 0;
         font-size: 26px;
+        
+    }
+    h3{
+        font-size: 20px;
+        color: #FDD037;
+        font-weight: 900;
     }
     h4{
-        margin: 0;
-        padding: 0;
+        font-size: 17px;
+        color: #FDD037;
+        font-weight: 900;
     }
     hr{
-        height: 1px;
+        height: 2px;
         border: 0;
         background-color: #12ADC1;
         margin: 30px 0;
@@ -24,6 +31,8 @@ export const Container = styled.div`
     label{
         font-size: 16px;
         margin-top: 20px;
+        font-size: 17px;
+        font-weight: 900;
 
         input {
             display: block;
@@ -61,9 +70,10 @@ export const Container = styled.div`
         color: #FDD037;
         text-decoration: solid;
         cursor: pointer;
+        border-bottom: 2px solid #FDD037;
     }
     .footer{
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
     
 `
@@ -71,6 +81,5 @@ export const Container = styled.div`
 export const Allproducts = styled.div`
     display: flex;
     flex-flow: row wrap;
-
-    
+    justify-content: center;
 `;

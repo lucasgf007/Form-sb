@@ -8,7 +8,12 @@ export const Container = styled.div`
         font-size: 16px;
         color: #FDD037;
         margin-right: 100px;
-        font-weight: 500;
+        font-weight: 900;
+    }
+    h4 {
+        font-size: 17px;
+        color: #FDD037;
+        font-weight: 900;
     }
     h1{
         margin: 0;
@@ -16,7 +21,7 @@ export const Container = styled.div`
         font-size: 26px;
     }
     hr{
-        height: 1px;
+        height: 2px;
         border: 0;
         background-color: #58a8bc;
         margin: 30px 0;
@@ -24,6 +29,8 @@ export const Container = styled.div`
     label{
         font-size: 16px;
         margin-top: 20px;
+        font-size: 17px;
+        font-weight: 900;
 
         input {
             display: block;
@@ -31,13 +38,15 @@ export const Container = styled.div`
             box-sizing: border-box;
             width: 100%;
             padding: 15px 10px;
-            border: 1px solid #12ADC1;
+            border: 2px solid #12ADC1;
             border-radius: 10px;
             color: #12ADC1;
             outline: 0;
             background-color: #FFF;
+            font-size: 16px;
         }
         input::placeholder{
+            font-size: 16px;
             color: #12ADC1;
             font-size: 14px;
         }

@@ -53,10 +53,10 @@ export const FormStep3 = () => {
         <Theme>
             <C.Container>
                 <Toaster />
-                <p>Passo 3/3</p>
+                <h4>Passo 3/3</h4>
                 <h1>Vamos organizar os últimos detahes</h1>
                 <p>{state.name}, selecione a quantidade de bonés do modelo {state.product} que você deseja comprar</p>
-                <h4>Resumo:</h4>
+                <h5>Resumo:</h5>
                 <p><strong>Modelo:</strong> {state.product} + R${state.price},00 </p>
                 <p><strong>Logo:</strong>  {state.logo} {addAplique && '+ R$ 2,00'}</p>
                 {state.aplique !== '' && 

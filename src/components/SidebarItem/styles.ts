@@ -51,6 +51,7 @@ export const IconArea = styled.div<{ active:boolean }>`
         width: 50px;
         height: 50px;
         margin-left: 5px;
+        display: none;
 
         svg{
             width: 17px;

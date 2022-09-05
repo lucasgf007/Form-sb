@@ -4,35 +4,18 @@ export const Container = styled.div`
     p {
         font-size: 16px;
         color: #FDD037;
-        font-weight: 500;
+        font-weight: 900;
     }
     h1{
-        margin: 0;
-        padding: 0;
+        text-transform: uppercase;
         font-size: 26px;
+        font-weight: 900;
     }
     hr{
-        height: 1px;
+        height: 2px;
         border: 0;
         background-color: #58a8bc;
         margin: 30px 0;
-    }
-    label{
-        font-size: 16px;
-        margin-top: 20px;
-
-        input {
-            display: block;
-            margin: 7px 0;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 15px 10px;
-            border: 2px solid #FFFFFF;
-            border-radius: 10px;
-            color: #FFF;
-            outline: 0;
-            background-color: #12ADC1;
-        }
     }
     button {
         background-color: #FDD037;

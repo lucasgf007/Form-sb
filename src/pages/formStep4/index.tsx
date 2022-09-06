@@ -35,9 +35,9 @@ export const FormStep4 = () => {
             }
         })
 
-        toast.success('Look at my styles.', {
+        toast.success('Seu pedido foi enviado!', {
             style: {
-              border: '1px solid #313243',
+              border: '1px solid #00E33B',
               padding: '16px',
               color: '#00E33B',
             },
@@ -45,6 +45,7 @@ export const FormStep4 = () => {
               primary: '#00E33B',
               secondary: '#FFFAEE',
             },
+            duration: 8000
         });
 
         return await resp.text() 
@@ -52,15 +53,21 @@ export const FormStep4 = () => {
 
     
  
-    let addAplique = false
+    let addAplique = 'Grátis'
 
     if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
-        addAplique = true
+        addAplique = '+ R$ 2,00'
+    }
+
+    let tecido = 'Grátis'
+    if(state.tecido === 'Premium'){
+        tecido = ' + R$ 4,00'
     }
     
     const TotalOrcamento = (priceProduto: number, qtd:number) => {
         let logoPrice = 0;
         let adicional = 0;
+        let tecido = 0;
 
         if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
             logoPrice = 2
@@ -68,8 +75,11 @@ export const FormStep4 = () => {
         if(state.aplique !== ''){
             adicional = 2
         }
+        if(state.tecido === 'Premium'){
+            tecido = 4
+        }
 
-        return (priceProduto + logoPrice + adicional) * qtd
+        return (priceProduto + logoPrice + adicional + tecido) * qtd
     }
 
 
@@ -82,8 +92,9 @@ export const FormStep4 = () => {
                 <h3>Resumo do seu pedido:</h3>
                 <ul>
                     <li>Modelo: {state.product}</li>
-                    <li>Valor do boné {state.product}: R${state.price},00</li>
-                    <li>Logo em: {state.logo} {addAplique && '+ R$ 2,00'} </li>
+                    <li>Valor do {state.product}: R${state.price},00</li>
+                    <li>Logo em: {state.logo} {addAplique} </li>
+                    <li>Tecido {state.tecido}: {tecido}</li>
                     {state.aplique !== '' && 
                     <li>Adicionais: {state.aplique + '+ R$ 2,00'}</li>}
                     <li>Quantidade: {state.qtd} unidades</li>

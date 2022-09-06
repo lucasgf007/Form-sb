@@ -16,6 +16,14 @@ export const Container = styled.div`
         cursor: pointer;
         border-bottom: 2px solid #FDD037;
     }
+    .min-flex{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .direita{
+        margin-left: 20px;
+    }
     .footer{
         margin-bottom: 50px;
     }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div<{ selected: boolean }>`
     /* display: inline; */
     background-color: #fff;
-    border: 1px solid ${props => props.selected  ? '#FDD037' : '#fff'};
+    border: 2px solid ${props => props.selected  ? '#FDD037' : '#fff'};
     color: #12ADC1;
     border-radius: 10px;
     padding: 5px;
@@ -13,7 +13,7 @@ export const Container = styled.div<{ selected: boolean }>`
     cursor: pointer;
 
     &:hover{
-        border: 1px solid #12ADC1;
+        border: 2px solid #fff;
         box-shadow: 2px 2px 5px #d3d3d3;
     }
 

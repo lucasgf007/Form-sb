@@ -4,7 +4,8 @@ export const Container = styled.div`
     
     h1{
         text-transform: uppercase;
-        font-size: 26px;
+        padding: 15px 0 0 10px;
+        font-size: 28px;
         font-weight: 900;
     }
     ul li {

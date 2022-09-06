@@ -24,10 +24,10 @@ export const FormStep2 = () => {
     }, [])
 
     const handleNextStep = () => {
-        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== '' && state.logo !== ''){
+        if(state.name !== '' && state.email !== '' && state.tell !== '' && state.product !== '' && state.logo !== '' && state.tecido !== ''){
             history.push('/step3')
         }else{
-            toast.error("Escolha um produto!")
+            toast.error("Selecione um modelo, logo ou tecido")
         }
             
     }
@@ -58,6 +58,13 @@ export const FormStep2 = () => {
         })
     }
 
+    const setTer = (item: string) => {
+        dispatch({
+            type: FormActions.setTer,
+            payload: item
+        })
+    }
+
     const Limpar = () => {
         const novo = ''
 
@@ -67,13 +74,16 @@ export const FormStep2 = () => {
         })
     }
 
-    let addAplique = false
+    let addAplique = 'Grátis'
 
     if(state.logo === 'Aplique a laser' || state.logo === 'Aplique 3D'){
-        addAplique = true
+        addAplique = '+ R$ 2,00'
     }
 
-    
+    let Tecido = 'Grátis'
+    if(state.tecido === 'Premium'){
+        Tecido = ' + R$ 4,00'
+    }
     
     return (
         <Theme>
@@ -85,11 +95,8 @@ export const FormStep2 = () => {
                 <p>Agora que ja preecheu seus dados na primeira etapa, informe quais produtos você tem interesse</p>
 
                 <hr />
-                    {state.product !== '' && 
-                        <p> <strong>Resumo:</strong> {state.product} + R${state.price},00 | {state.logo} {addAplique && '+ R$ 2,00'} {state.aplique !== '' && ' | ' + state.aplique + '+ R$ 2,00'} </p>
-                    }
-                    
-                <h5>Escolha o modelo do produto:</h5>
+            
+                <h5>Escolha o modelo do produto: {state.product !== '' && '+ R$ ' + state.price + ',00'}</h5>
                 <C.Allproducts>
                     <SelectOption
                         onClick={()=>setProducts('Trucker', 26)}
@@ -142,37 +149,37 @@ export const FormStep2 = () => {
                     />
                     
                 </C.Allproducts>
-                <h5>Escolha o modelo da logo frontal: </h5>
+                <h5>Escolha o modelo da logo frontal: {state.logo !== '' && addAplique}</h5>
                 
                 <C.Allproducts>
                     <SelectOption 
                         onClick={()=>setLogo('Aplique a laser')}
                         title='Aplique a laser'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="Laser"
                         selected={state.logo === 'Aplique a laser'}
                     />
                     
                     <SelectOption 
                         onClick={()=>setLogo('Aplique 3D')}
                         title='Aplique 3D'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="3D"
                         selected={state.logo === 'Aplique 3D'}
                     />
                     <SelectOption 
                         onClick={()=>setLogo('Bordado')}
                         title='Bordado'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="Bordado"
                         selected={state.logo === 'Bordado'}
                     />
                     <SelectOption 
                         onClick={()=>setLogo('Silk')}
                         title='Silk'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="Silk"
                         selected={state.logo === 'Silk'}
                     />
                 </C.Allproducts>
                 <div className='min-flex'>
-                    <div className='esquerda'><h5>Escolha o modelo do aplique lateral: (Opcional)</h5></div>
+                    <div className='esquerda'><h5>Escolha o modelo do aplique lateral: (Opcional) {state.aplique !== '' && ' + R$ 2,00'}</h5></div>
                     <div className='direita'><a onClick={Limpar} className='limpar'>Limpar</a></div>
                 </div>
                 
@@ -180,28 +187,39 @@ export const FormStep2 = () => {
                     <SelectOption 
                         onClick={()=>setAplique('Aplique a laser')}
                         title='Aplique a laser'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="Aplaser"
                         selected={state.aplique === 'Aplique a laser'}
                     />
                     
                     <SelectOption 
                         onClick={()=>setAplique('Aplique 3D')}
                         title='Aplique 3D'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="Apl3D"
                         selected={state.aplique === 'Aplique 3D'}
                     />
                     <SelectOption 
                         onClick={()=>setAplique('Bordado')}
                         title='Bordado'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
+                        urlImg="AplBordado"
                         selected={state.aplique === 'Bordado'}
                     />
+                </C.Allproducts>
+                <h5>Escolha o tipo de tecido: {state.tecido !== '' && Tecido}</h5>
+                <C.Allproducts>
                     <SelectOption 
-                        onClick={()=>setAplique('Silk')}
-                        title='Silk'
-                        urlImg="https://seubone.com/wp-content/webp-express/webp-images/uploads/2022/07/TRUCKER.png.webp"
-                        selected={state.aplique === 'Silk'}
+                        onClick={()=>setTer('Padrao')}
+                        title='Tecido Padrão'
+                        urlImg="Padrao"
+                        selected={state.tecido === 'Padrao'}
                     />
+                    
+                    <SelectOption 
+                        onClick={()=>setTer('Premium')}
+                        title='Tecido Premium'
+                        urlImg="Premium"
+                        selected={state.tecido === 'Premium'}
+                    />
+                    
                 </C.Allproducts>
                 
                 <Link to={'/'} className='backButton'>Voltar</Link>

@@ -11,7 +11,7 @@ type State = {
     segment: string;
     product: string;
     price: number;
-    description: string;
+    tecido: string;
     logo: string;
 }
 type Action = {
@@ -36,7 +36,7 @@ const initialData: State = {
     segment: '',
     product: '',
     price: 0,
-    description: '',
+    tecido: '',
     logo: ''
 }
 
@@ -54,7 +54,7 @@ export enum FormActions {
     setSegment,
     setProduct,
     setPrice,
-    setDescription,
+    setTer,
     setLogo
 }
 const formReducer = (state: State, action: Action) => {
@@ -80,8 +80,8 @@ const formReducer = (state: State, action: Action) => {
             }
         case FormActions.setPrice:
             return {...state, price: action.payload}
-        case FormActions.setDescription:
-            return {...state, description: action.payload}
+        case FormActions.setTer:
+            return {...state, tecido: action.payload}
         case FormActions.setLogo:
             return {...state, logo: action.payload}
         default:

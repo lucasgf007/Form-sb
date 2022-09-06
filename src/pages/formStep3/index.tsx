@@ -11,7 +11,7 @@ export const FormStep3 = () => {
 
     // update level
     useEffect(() => {
-        if(state.name === '' && state.email ==='' && state.tell === '' && state.product === '' && state.logo === ''){
+        if(state.name === '' || state.email ==='' || state.tell === '' || state.product === '' || state.logo === ''){
             history.push('/')
         } else{
             dispatch({

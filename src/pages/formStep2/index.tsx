@@ -12,7 +12,7 @@ export const FormStep2 = () => {
 
     // update level
     useEffect(() => {
-        if(state.name === '' && state.email ==='' && state.tell === ''){
+        if(state.name === '' || state.email ==='' || state.tell === ''){
             history.push('/')
         } else{
             dispatch({
@@ -89,7 +89,7 @@ export const FormStep2 = () => {
                         <p> <strong>Resumo:</strong> {state.product} + R${state.price},00 | {state.logo} {addAplique && '+ R$ 2,00'} {state.aplique !== '' && ' | ' + state.aplique + '+ R$ 2,00'} </p>
                     }
                     
-                <h4>Escolha o modelo do produto:</h4>
+                <h5>Escolha o modelo do produto:</h5>
                 <C.Allproducts>
                     <SelectOption
                         onClick={()=>setProducts('Trucker', 26)}
@@ -142,7 +142,7 @@ export const FormStep2 = () => {
                     />
                     
                 </C.Allproducts>
-                <h4>Escolha o modelo da logo frontal: </h4>
+                <h5>Escolha o modelo da logo frontal: </h5>
                 
                 <C.Allproducts>
                     <SelectOption 
@@ -172,7 +172,7 @@ export const FormStep2 = () => {
                     />
                 </C.Allproducts>
                 <div className='min-flex'>
-                    <div className='esquerda'><h4>Escolha o modelo do aplique lateral: (Opcional)</h4></div>
+                    <div className='esquerda'><h5>Escolha o modelo do aplique lateral: (Opcional)</h5></div>
                     <div className='direita'><a onClick={Limpar} className='limpar'>Limpar</a></div>
                 </div>
                 

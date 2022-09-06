@@ -5,7 +5,7 @@ type State = {
     currentStep: number;
     name: string;
     aplique: string;
-    email: '';
+    email: string;
     tell: string;
     qtd: number;
     segment: string;

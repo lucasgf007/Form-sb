@@ -31,7 +31,7 @@ export const FormStep1 = () => {
     const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: FormActions.setName,
-            payload: e.target.value.toUpperCase()
+            payload: e.target.value
         })
     }
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +75,7 @@ export const FormStep1 = () => {
                 <label>
                     Seu E-mail
                     <input
-                        placeholder='Ex.: exemplo@gamil.com'
+                        
                         type='email'
                         value={state.email}
                         onChange={handleEmailChange}
@@ -84,7 +84,7 @@ export const FormStep1 = () => {
                 <label>
                     Telefone
                     <input
-                        placeholder='Ex.: 84980809090'
+                        
                         type='text'
                         value={state.tell}
                         maxLength={11}

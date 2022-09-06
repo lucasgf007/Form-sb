@@ -11,7 +11,7 @@ export const FormStep4 = () => {
 
     // update level
     useEffect(() => {
-        if(state.name === '' && state.email ==='' && state.tell === ''){
+        if(state.name === '' || state.email ==='' || state.tell === '' || state.product === '' || state.logo === ''){
             history.push('/')
         } else{
             dispatch({
@@ -34,10 +34,10 @@ export const FormStep4 = () => {
                 'Accept': 'application/json'
             }
         })
-        
-        toast.success('Orçamento enviado com sucesso', {
+
+        toast.success('Look at my styles.', {
             style: {
-              border: '1px solid #00E33B',
+              border: '1px solid #313243',
               padding: '16px',
               color: '#00E33B',
             },
@@ -45,11 +45,12 @@ export const FormStep4 = () => {
               primary: '#00E33B',
               secondary: '#FFFAEE',
             },
-          });
+        });
 
-        return await resp.text()
-        
+        return await resp.text() 
     }
+
+    
  
     let addAplique = false
 
